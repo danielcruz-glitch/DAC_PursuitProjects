@@ -1,35 +1,1021 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniel A. Cruz</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daniel A. Cruz | Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-soft: #111827;
+      --card: rgba(255, 255, 255, 0.08);
+      --card-border: rgba(255, 255, 255, 0.12);
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-2: #8b5cf6;
+      --white: #ffffff;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      --radius: 18px;
+      --max-width: 1150px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 30%),
+        radial-gradient(circle at top right, rgba(139, 92, 246, 0.18), transparent 28%),
+        linear-gradient(180deg, #0b1120 0%, #111827 100%);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 90%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+      color: var(--white);
+      text-align: center;
+    }
+
+    .section-subtitle {
+      max-width: 720px;
+      margin: 0 auto 50px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+      border-color: rgba(56, 189, 248, 0.35);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: 0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: color 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    .hero {
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      padding: 70px 0 30px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-text {
+      animation: fadeUp 1s ease;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      color: #dbeafe;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4.4rem);
+      line-height: 1.05;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 18px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(90deg, var(--accent), #60a5fa, var(--accent-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 700px;
+      margin-bottom: 28px;
+    }
+
+    .hero-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 30px;
+      color: #cbd5e1;
+      font-size: 0.95rem;
+    }
+
+    .hero-contact span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: 0.3s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      color: var(--white);
+      box-shadow: 0 10px 24px rgba(56, 189, 248, 0.2);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-card {
+      padding: 28px;
+      animation: floatCard 4s ease-in-out infinite;
+    }
+
+    .profile-frame {
+      width: 100%;
+      max-width: 360px;
+      margin: 0 auto;
+      padding: 18px;
+      border-radius: 28px;
+      background: linear-gradient(145deg, rgba(56, 189, 248, 0.2), rgba(139, 92, 246, 0.16));
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .profile-frame img {
+      width: 100%;
+      border-radius: 22px;
+      aspect-ratio: 1 / 1.1;
+      object-fit: cover;
+      background: #1f2937;
+    }
+
+    .mini-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .stat-box {
+      padding: 16px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      text-align: center;
+    }
+
+    .stat-box h3 {
+      font-size: 1.3rem;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .stat-box p {
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+    }
+
+    .about-card,
+    .highlight-card {
+      padding: 28px;
+    }
+
+    .about-card p {
+      color: #cbd5e1;
+      font-size: 1rem;
+    }
+
+    .highlights {
+      display: grid;
+      gap: 14px;
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .highlight-item i {
+      color: var(--accent);
+      font-size: 1.1rem;
+      margin-top: 4px;
+    }
+
+    .highlight-item h4 {
+      color: var(--white);
+      margin-bottom: 4px;
+      font-size: 1rem;
+    }
+
+    .highlight-item p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .skill-card {
+      padding: 24px;
+      text-align: center;
+    }
+
+    .skill-card i {
+      font-size: 2rem;
+      margin-bottom: 14px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .skill-card h3 {
+      font-size: 1rem;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .skill-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .achievement-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .achievement-card {
+      padding: 24px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .achievement-card i {
+      font-size: 1.3rem;
+      color: var(--accent);
+      margin-top: 4px;
+    }
+
+    .achievement-card h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+      color: var(--white);
+    }
+
+    .achievement-card p {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .experience-list {
+      display: grid;
+      gap: 22px;
+      position: relative;
+    }
+
+    .experience-item {
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .experience-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 5px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--accent), var(--accent-2));
+    }
+
+    .experience-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .experience-top h3 {
+      color: var(--white);
+      font-size: 1.2rem;
+    }
+
+    .experience-top .date {
+      color: #cbd5e1;
+      font-size: 0.92rem;
+      font-weight: 600;
+      background: rgba(255,255,255,0.06);
+      padding: 7px 12px;
+      border-radius: 999px;
+    }
+
+    .role {
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 10px;
+      font-size: 0.96rem;
+    }
+
+    .experience-item p {
+      color: var(--muted);
+    }
+
+    .education-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .education-card,
+    .cert-card {
+      padding: 28px;
+    }
+
+    .education-card h3,
+    .cert-card h3 {
+      color: var(--white);
+      margin-bottom: 14px;
+      font-size: 1.15rem;
+    }
+
+    .education-card p,
+    .cert-card li {
+      color: var(--muted);
+    }
+
+    .cert-card ul {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .cert-card li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .cert-card i {
+      color: var(--accent);
+      margin-top: 4px;
+    }
+
+    .contact-card {
+      padding: 34px;
+      text-align: center;
+    }
+
+    .contact-card h2 {
+      color: var(--white);
+      margin-bottom: 12px;
+      font-size: 2rem;
+    }
+
+    .contact-card p {
+      max-width: 680px;
+      margin: 0 auto 24px;
+      color: var(--muted);
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .contact-links a {
+      padding: 14px 18px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-weight: 600;
+      color: var(--text);
+      transition: 0.25s ease;
+    }
+
+    .contact-links a:hover {
+      transform: translateY(-3px);
+      border-color: rgba(56, 189, 248, 0.35);
+    }
+
+    footer {
+      padding: 28px 0 40px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      animation: revealUp 0.9s ease forwards;
+    }
+
+    .reveal.delay-1 { animation-delay: 0.1s; }
+    .reveal.delay-2 { animation-delay: 0.2s; }
+    .reveal.delay-3 { animation-delay: 0.3s; }
+    .reveal.delay-4 { animation-delay: 0.4s; }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes revealUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @media (max-width: 992px) {
+      .hero-grid,
+      .about-grid,
+      .education-grid,
+      .achievement-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 50px;
+      }
+
+      .hero-card {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+
+      .section {
+        padding: 70px 0;
+      }
+
+      .experience-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-actions,
+      .contact-links,
+      .hero-contact {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header style="text-align: center;">
-    <img 
-        src="cccard.jpg" 
-        alt="Daniel A. Cruz" 
-        style="width: 300px; border-radius: 8px; margin-bottom: 10px;"
-    />
-    <h1>Daniel A. Cruz</h1>
-</header>
-    <section id="about">
-        <h2>About</h2>
-        <p>I'm a problem-solver with a passion for technology, data, and building smarter systems. With experience in ERP, operations, and IT, I focus on creating solutions that improve efficiency and drive results. Currently, I'm expanding my skills in AI to build the next generation of intelligent tools.</p>
+
+  <header>
+    <div class="container nav">
+      <a href="#" class="logo">Daniel A. Cruz</a>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <span class="eyebrow">IT Operations • ERP Systems • Inventory Strategy</span>
+          <h1>Daniel A. Cruz</span></h1>
+          <p>
+            IT Operations and Inventory Systems Manager with extensive experience in IT infrastructure,
+            ERP platforms, logistics workflows, and supply chain operations. I build practical systems
+            that improve efficiency, strengthen accuracy, and support smarter decision-making.
+          </p>
+
+          <div class="hero-contact">
+            <span><i class="fa-solid fa-location-dot"></i> Bronx, NY</span>
+            <span><i class="fa-solid fa-envelope"></i> daniel.cruz@pursuit.org</span>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#experience" class="btn btn-primary">
+              <i class="fa-solid fa-briefcase"></i> View Experience
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+              <i class="fa-solid fa-paper-plane"></i> Contact Me
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-card card">
+          <div class="profile-frame">
+            <img src="profile.jpg" alt="Daniel A. Cruz" />
+          </div>
+
+          <div class="mini-stats">
+            <div class="stat-box">
+              <h3>20+</h3>
+              <p>Years of Experience</p>
+            </div>
+            <div class="stat-box">
+              <h3>3</h3>
+              <p>Retail Locations Supported</p>
+            </div>
+            <div class="stat-box">
+              <h3>170+</h3>
+              <p>Commercial Accounts</p>
+            </div>
+            <div class="stat-box">
+              <h3>2</h3>
+              <p>Languages Spoken</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>Data analysis, SQL, and reporting tools</li>
-            <li>ERP systems, process optimization, and technical troubleshooting</li>
-            <li>Python and AI for automated, scalable solutions</li>
-        </ul>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title reveal">About Me</h2>
+        <p class="section-subtitle reveal delay-1">
+          A professional background built around technology, operations, and continuous improvement.
+        </p>
+
+        <div class="about-grid">
+          <div class="about-card card reveal delay-1">
+            <p>
+              I specialize in connecting IT systems with operations to create reliable, efficient,
+              and scalable business processes. My experience spans ERP administration, inventory control,
+              network support, logistics coordination, and supply chain analysis across retail and
+              technical environments.
+            </p>
+            <br>
+            <p>
+              Over the years, I have helped improve inventory accuracy, reduce delays, support system
+              adoption, and strengthen reporting for better business decisions. I bring a practical,
+              hands-on approach to solving operational challenges while keeping technology aligned with
+              day-to-day business needs.
+            </p>
+          </div>
+
+          <div class="highlight-card card reveal delay-2">
+            <div class="highlights">
+              <div class="highlight-item">
+                <i class="fa-solid fa-gears"></i>
+                <div>
+                  <h4>Operations + Technology</h4>
+                  <p>Bridging ERP systems, infrastructure, and workflow improvement.</p>
+                </div>
+              </div>
+
+              <div class="highlight-item">
+                <i class="fa-solid fa-chart-line"></i>
+                <div>
+                  <h4>Data-Driven Decisions</h4>
+                  <p>Using reporting, SQL, and operational analysis to improve performance.</p>
+                </div>
+              </div>
+
+              <div class="highlight-item">
+                <i class="fa-solid fa-users"></i>
+                <div>
+                  <h4>Leadership & Training</h4>
+                  <p>Supporting teams through training, adoption, and process alignment.</p>
+                </div>
+              </div>
+
+              <div class="highlight-item">
+                <i class="fa-solid fa-network-wired"></i>
+                <div>
+                  <h4>Technical Foundation</h4>
+                  <p>Experience in networking, copper and fiber training, and systems support.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
-    <section id="projects">
-        <h2>Projects</h2>
-        <p>Currently enrolled in an AI Native Program, building hands-on projects combining real-world problem solving with AI-powered tools.</p>
+
+    <section id="skills" class="section">
+      <div class="container">
+        <h2 class="section-title reveal">Core Skills</h2>
+        <p class="section-subtitle reveal delay-1">
+          A mix of technical, operational, and leadership strengths.
+        </p>
+
+        <div class="skills-grid">
+          <div class="skill-card card reveal">
+            <i class="fa-solid fa-server"></i>
+            <h3>IT Infrastructure</h3>
+            <p>Hands-on support for systems, technical environments, and business operations.</p>
+          </div>
+
+          <div class="skill-card card reveal delay-1">
+            <i class="fa-solid fa-cubes"></i>
+            <h3>ERP Systems</h3>
+            <p>Epicor BisTrack, Microsoft Dynamics GP, and ERP-driven process support.</p>
+          </div>
+
+          <div class="skill-card card reveal delay-2">
+            <i class="fa-solid fa-boxes-stacked"></i>
+            <h3>Inventory & Supply Chain</h3>
+            <p>Inventory control, cycle counts, logistics improvement, and operational accuracy.</p>
+          </div>
+
+          <div class="skill-card card reveal delay-3">
+            <i class="fa-solid fa-chart-column"></i>
+            <h3>Data Analysis</h3>
+            <p>SQL, Crystal Reports, dashboards, and reporting for operational insight.</p>
+          </div>
+
+          <div class="skill-card card reveal">
+            <i class="fa-solid fa-network-wired"></i>
+            <h3>Network Administration</h3>
+            <p>Infrastructure support including copper and fiber optic network training.</p>
+          </div>
+
+          <div class="skill-card card reveal delay-1">
+            <i class="fa-solid fa-arrows-rotate"></i>
+            <h3>Process Improvement</h3>
+            <p>Improving workflows, reducing inefficiencies, and supporting system adoption.</p>
+          </div>
+
+          <div class="skill-card card reveal delay-2">
+            <i class="fa-solid fa-chalkboard-user"></i>
+            <h3>Training & Leadership</h3>
+            <p>Staff development, technical instruction, and cross-functional collaboration.</p>
+          </div>
+
+          <div class="skill-card card reveal delay-3">
+            <i class="fa-solid fa-language"></i>
+            <h3>Bilingual</h3>
+            <p>English and Spanish communication across technical and operational settings.</p>
+          </div>
+        </div>
+      </div>
     </section>
+
+    <section id="achievements" class="section">
+      <div class="container">
+        <h2 class="section-title reveal">Key Achievements</h2>
+        <p class="section-subtitle reveal delay-1">
+          Highlights that reflect impact across operations, systems, and team support.
+        </p>
+
+        <div class="achievement-grid">
+          <div class="achievement-card card reveal">
+            <i class="fa-solid fa-store"></i>
+            <div>
+              <h3>Multi-Location Support</h3>
+              <p>Managed IT systems and inventory operations supporting 3 retail locations and 170+ commercial accounts across NYC.</p>
+            </div>
+          </div>
+
+          <div class="achievement-card card reveal delay-1">
+            <i class="fa-solid fa-clipboard-check"></i>
+            <div>
+              <h3>Inventory Accuracy</h3>
+              <p>Improved inventory accuracy and operational efficiency through ERP management, cycle counts, and process improvements.</p>
+            </div>
+          </div>
+
+          <div class="achievement-card card reveal delay-2">
+            <i class="fa-solid fa-truck-fast"></i>
+            <div>
+              <h3>Workflow Improvement</h3>
+              <p>Implemented logistics workflow improvements that reduced delivery delays and strengthened supply chain performance.</p>
+            </div>
+          </div>
+
+          <div class="achievement-card card reveal delay-3">
+            <i class="fa-solid fa-people-group"></i>
+            <div>
+              <h3>Team Leadership</h3>
+              <p>Led cross-functional teams that improved operational efficiency and encouraged stronger technology adoption.</p>
+            </div>
+          </div>
+
+          <div class="achievement-card card reveal">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <div>
+              <h3>Staff Development</h3>
+              <p>Developed and delivered ERP and technical training programs to support staff performance and consistency.</p>
+            </div>
+          </div>
+
+          <div class="achievement-card card reveal delay-1">
+            <i class="fa-solid fa-laptop-code"></i>
+            <div>
+              <h3>Systems + Operations</h3>
+              <p>Built a career around aligning technical infrastructure with real operational needs in fast-paced environments.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <div class="container">
+        <h2 class="section-title reveal">Professional Experience</h2>
+        <p class="section-subtitle reveal delay-1">
+          A career path shaped by IT leadership, operational control, and technical instruction.
+        </p>
+
+        <div class="experience-list">
+          <div class="experience-item card reveal">
+            <div class="experience-top">
+              <div>
+                <h3>C.S. Brown Company Inc., Bronx, NY</h3>
+                <div class="role">Information Technology Manager / Inventory Control Analyst</div>
+              </div>
+              <span class="date">2017–2025</span>
+            </div>
+            <p>
+              Led IT operations and ERP-driven inventory management across retail and supply chain functions,
+              ensuring system reliability and data accuracy. Supported operational improvement by analyzing key
+              processes, optimizing logistics workflows, strengthening reporting for leadership, and helping staff
+              adopt systems more effectively through training and day-to-day support.
+            </p>
+          </div>
+
+          <div class="experience-item card reveal delay-1">
+            <div class="experience-top">
+              <div>
+                <h3>Ace Hardware New York Inc., Bronx, NY</h3>
+                <div class="role">IT Coordinator / Inventory Control Specialist</div>
+              </div>
+              <span class="date">2013–2017</span>
+            </div>
+            <p>
+              Managed IT infrastructure and inventory operations across multiple retail locations, supporting both
+              store and warehouse activities. Contributed to stronger operational efficiency through inventory control,
+              audit practices, system maintenance, technical installations, and shrinkage reduction initiatives.
+            </p>
+          </div>
+
+          <div class="experience-item card reveal delay-2">
+            <div class="experience-top">
+              <div>
+                <h3>Saona Technologies, Bronx, NY</h3>
+                <div class="role">Operations Manager</div>
+              </div>
+              <span class="date">2004–2012</span>
+            </div>
+            <p>
+              Oversaw the daily operations of an electronics repair facility while leading a team of employees and
+              managing core business functions. Responsibilities included staffing, scheduling, budgeting, vendor
+              coordination, payroll, and performance tracking, with a focus on improving service delivery and
+              operational control.
+            </p>
+          </div>
+
+          <div class="experience-item card reveal delay-3">
+            <div class="experience-top">
+              <div>
+                <h3>South Bronx Overall Development Corporation</h3>
+                <div class="role">Network Systems Instructor / CCNA Instructor</div>
+              </div>
+              <span class="date">2002–2004</span>
+            </div>
+            <p>
+              Delivered technical instruction in network design, installation, and troubleshooting, including
+              copper-based and fiber optic network cabling. Prepared students with practical knowledge in routers,
+              switches, Ethernet networking, and foundational infrastructure deployment.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="section">
+      <div class="container">
+        <h2 class="section-title reveal">Education & Certifications</h2>
+        <p class="section-subtitle reveal delay-1">
+          Academic and technical training that supports both infrastructure and operational work.
+        </p>
+
+        <div class="education-grid">
+          <div class="education-card card reveal">
+            <h3><i class="fa-solid fa-school"></i> Education</h3>
+            <p><strong style="color:#fff;">Associate of Applied Science — Network Administration</strong></p>
+            <p>Westchester Business College</p>
+          </div>
+
+          <div class="cert-card card reveal delay-1">
+            <h3><i class="fa-solid fa-certificate"></i> Certifications</h3>
+            <ul>
+              <li><i class="fa-solid fa-check"></i><span>Cisco Networking Instructor Academy</span></li>
+              <li><i class="fa-solid fa-check"></i><span>C-Tech Copper/Fiber Network Cabling Instructor</span></li>
+              <li><i class="fa-solid fa-check"></i><span>HP University – LaserJet Printer Technician</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="contact-card card reveal">
+          <h2>Let’s Connect</h2>
+          <p>
+            I’m open to opportunities where IT, ERP systems, operations, and process improvement come together
+            to create real business value.
+          </p>
+
+          <div class="contact-links">
+            <a href="mailto:daniel.cruz@pursuit.org">
+              <i class="fa-solid fa-envelope"></i> Email Me
+            </a>
+            <a href="#top">
+              <i class="fa-solid fa-arrow-up"></i> Back to Top
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Daniel A. Cruz. All rights reserved.</p>
+    </div>
+  </footer>
+
 </body>
 </html>
